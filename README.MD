@@ -40,13 +40,13 @@ git clone https://github.com/Lusty4EVA/text-to-speech
 
 <pre>
 
-owner_id = [ ] 			 get this from Rose
-api_key = " " 			 get this from elevenlabs.io/
-api_id = 				 get this from my.telegram.org/apps
-api_hash = ""			 get this from my.telegram.org/apps
-bot_token = ""			 make your bot on t.me/BotFather and get the bot_token
-bot_username = ""		 your bot's username
-bot_name = ""			 your bot's name
+owner_id = [ ] 			 #get this from Rose
+api_key = " " 			 #get this from elevenlabs.io/
+api_id = ()		    	 #get this from my.telegram.org/apps
+api_hash = ""			 #get this from my.telegram.org/apps
+bot_token = ""			 #make your bot on t.me/BotFather and get the bot_token
+bot_username = ""		 #your bot's username
+bot_name = ""			 #your bot's name
 
 </pre>
 
