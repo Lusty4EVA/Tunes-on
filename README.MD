@@ -54,7 +54,7 @@ bot_name = ""			 #your bot's name
 <pre>
 
 pip install -r requirements.txt
-```
+
 </pre>
 
 4. run main.py
