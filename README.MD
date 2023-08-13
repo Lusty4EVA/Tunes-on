@@ -21,7 +21,7 @@ Remember that the responsibility for any content generated using this bot lies s
 
 1. make sure you have installed git, python and pip
 <pre>
-```
+
 sudo apt-get --upgrade
 
 
@@ -33,13 +33,13 @@ sudo apt install pip
 sudo apt-get install git
 
 git clone https://github.com/Lusty4EVA/text-to-speech
-```
+
 </pre>
 
 2. go to project dir and edit config.py with your info
 
 <pre>
-```
+
 owner_id = [ ] 			 get this from Rose
 api_key = " " 			 get this from elevenlabs.io/
 api_id = 				 get this from my.telegram.org/apps
@@ -47,29 +47,29 @@ api_hash = ""			 get this from my.telegram.org/apps
 bot_token = ""			 make your bot on t.me/BotFather and get the bot_token
 bot_username = ""		 your bot's username
 bot_name = ""			 your bot's name
-```
+
 </pre>
 
 3. install all requirements
 <pre>
-```
+
 pip install -r requirements.txt
 ```
 </pre>
 
 4. run main.py
 <pre>
-```
+
 python3 main.py
-```
+
 </pre>
 5. bot commands
 <pre>
-```
+
 /start  - check if bot is deployed
 /help	- to get into help section
 /voices	- to get the all available voices (must set one)
 /set	- to update the default voice
 /say	- convert your text to speech
-```
+
 </pre>
