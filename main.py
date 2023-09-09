@@ -1,9 +1,12 @@
 from pyrogram import Client, filters
+from pyrogram import types
 import sys
 import requests
 import text_to_speech_api
 import os
 import config
+import uuid
+import io
 
 
 bot = Client(
@@ -83,13 +86,18 @@ async def play_text_handler(_, msg):
   text1 = orig_text
   if not input_data:
     return await bot.send_message(msg.chat.id, f"Please set a voice first using the /set command before using the /say command")
-  text_to_speech_api.genaudio(text1, input_data)
-  script_dir = os.path.dirname(os.path.abspath(__file__))
-  audio_file = os.path.join(script_dir, "output.mp3")
-  with open(audio_file, "rb") as f:
-      await bot.send_audio(chat_id=msg.chat.id, audio=f, title="output")
-  os.remove(audio_file)
+  audio_data = text_to_speech_api.genaudio(text1, input_data)
+  if audio_data is None:
+        return await bot.send_message(msg.chat.id, f"Failed to generate audio. Please try again later.")
 
+  audio_buffer = io.BytesIO(audio_data)
+  audio_buffer.name = "output.mp3"
+
+  await bot.send_audio(
+      chat_id=msg.chat.id,
+      audio=audio_buffer, 
+      title="output.mp3"
+  )
 
 def is_owner(message):
     return message.from_user.id in owner_ids

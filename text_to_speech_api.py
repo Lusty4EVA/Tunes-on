@@ -21,7 +21,7 @@ def getvoices():
 
 voicemodels,_ = getvoices()
 
-def genaudio(text, voice):
+def genaudio(text, voice,):
     
     CHUNK_SIZE = 1024
     url = "https://api.elevenlabs.io/v1/text-to-speech/" + voicemodels[voice]
@@ -34,15 +34,16 @@ def genaudio(text, voice):
 
     data = {
     "text": text,
-    "model_id": "eleven_monolingual_v1",
+    "model_id": "eleven_multilingual_v2",
     "voice_settings": {
         "stability": 0.5,
-        "similarity_boost": 0.5
+        "similarity_boost": 0.3
     }
     }
 
     TTS_res = requests.post(url, json=data, headers=headers)
-    with open('output.mp3', 'wb') as f:
-        for chunk in TTS_res.iter_content(chunk_size=CHUNK_SIZE):
-            if chunk:
-                f.write(chunk)
+    if TTS_res.status_code == 200:
+        # Convert audio content to bytes and return it
+        return bytes(TTS_res.content)
+    else:
+        return None  # Handle the error appropriately in your code
